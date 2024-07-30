@@ -15,7 +15,7 @@ bot = telebot.TeleBot(TOKEN)
 key='?key=3e3d755ed58bc3fbd5d130ceead1d5f0&text='
 @bot.message_handler(commands=['start'])
 def handle_start(message):
-    bot.reply_to(message, " XIN CHÀO TÔI LÀ CHAT GPT BY ADMIN : Vũ Công Huy Hoàng 👱\n\n[ /cauhoi ĐỂ SỬ DỤNG BOT ]")
+    bot.reply_to(message, " XIN CHÀO TÔI LÀ CHAT GPT\n[ /cauhoi ĐỂ SỬ DỤNG BOT ]")
 
 @bot.message_handler(commands=['cauhoi'])
 def handle_ask(message):
@@ -26,18 +26,6 @@ def handle_ask(message):
 
     response_message = get_answer_from_api(question)
     bot.reply_to(message, response_message)
-banner = f'''
-Thiết Lập Kết Nối Đến Bot Thành Công!
-██╗░░██╗░█████╗░░█████╗░███╗░░██╗░██████╗░
-██║░░██║██╔══██╗██╔══██╗████╗░██║██╔════╝░
-███████║██║░░██║███████║██╔██╗██║██║░░██╗░
-██╔══██║██║░░██║██╔══██║██║╚████║██║░░╚██╗
-██║░░██║╚█████╔╝██║░░██║██║░╚███║╚██████╔╝
-╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░
-[Bot]:Nếu Có Điều Kiện Hãy Treo Bot Bằng Vps
-[Bot]:Chúc Bạn 1 Ngày Vui Vẻ
-'''
-print(banner)
 def get_answer_from_api(question):
     url = f"https://api.fasttube.ir/{key}{question}"
     response = requests.get(url)
